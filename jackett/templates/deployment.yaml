@@ -58,14 +58,9 @@ spec:
             mountPath: /config
           - name: jackett-data
             mountPath: /data
-          - name: etc-timezone
-            mountPath: /etc/timezone
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
-      - name: etc-timezone
-        hostPath:
-          path: /etc/localtime
       - name: jackett-config
       {{- if .Values.persistence.enabled }}
         persistentVolumeClaim:
