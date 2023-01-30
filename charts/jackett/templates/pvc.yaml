@@ -1,23 +1,26 @@
-{{- if and .Values.persistence.enabled (not .Values.persistence.existingClaim) -}}
+{{- if and .Values.persistence.enabled (not .Values.persistence.existingClaim) }}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ template "jackett.fullname" . }}
-  annotations:
+  name: {{ template "jackett.fullname" . }}-config
+  labels:
+    app: {{ template "jackett.name" . }}
+    chart: {{ template "jackett.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
   {{- with .Values.persistence.annotations  }}
-  {{ toYaml . | nindent 4 }}
+  annotations:
+  {{ toYaml . | indent 4 }}
   {{- end }}
     helm.sh/resource-policy: keep
-  labels:
-    {{- include "jackett.labels" . | nindent 4 }}
 spec:
   accessModes:
-    - {{ .Values.persistence.accessMode | quote }}
+    {{- range .Values.persistence.accessModes }}
+    - {{ . | quote }}
+    {{- end }}
   resources:
     requests:
       storage: {{ .Values.persistence.size | quote }}
-  {{- if .Values.persistence.storageClass }}
-  storageClassName: {{ .Values.persistence.storageClass | quote }}
-  {{- end }}
+  storageClassName: {{ .Values.persistence.storageClassName }}
 {{- end -}}
 
