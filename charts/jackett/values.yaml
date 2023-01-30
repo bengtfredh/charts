@@ -61,6 +61,7 @@ persistence:
   enabled: true
   name: data
 #  existingClaim: ""
-  accessModes: ReadWriteOnce
+  accessModes:
+    - ReadWriteOnce
   size: 1Gi
   # storageClass: ""
