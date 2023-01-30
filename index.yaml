@@ -3,6 +3,22 @@ entries:
   jackett:
   - apiVersion: v1
     appVersion: 0.20.2741
+    created: "2023-01-30T11:55:09.593530745Z"
+    description: API Support for your favorite torrent trackers.
+    digest: 60903de8f1c0618839c451c6936710fd4da97f2e465da73bc700e449c3e72445
+    home: https://github.com/Jackett/Jackett
+    icon: https://raw.githubusercontent.com/Jackett/Jackett/master/src/Jackett.Common/Content/jacket_medium.png
+    keywords:
+    - jackett
+    maintainers:
+    - email: bengt@fredhs.net
+      name: Bengt Fredh
+    name: jackett
+    urls:
+    - https://github.com/bengtfredh/charts/releases/download/jackett-0.1.8/jackett-0.1.8.tgz
+    version: 0.1.8
+  - apiVersion: v1
+    appVersion: 0.20.2741
     created: "2023-01-30T11:49:44.851083238Z"
     description: API Support for your favorite torrent trackers.
     digest: 9d86985827e9f87a24c087db9609dbc15a7cfae035cad3b46936c8687a48a161
@@ -113,4 +129,4 @@ entries:
     urls:
     - https://github.com/bengtfredh/charts/releases/download/jackett-0.1.1/jackett-0.1.1.tgz
     version: 0.1.1
-generated: "2023-01-30T11:49:44.851109139Z"
+generated: "2023-01-30T11:55:09.593556446Z"
