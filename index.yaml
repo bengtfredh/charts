@@ -1,6 +1,14 @@
 apiVersion: v1
 entries:
   jackett:
+  - apiVersion: v2
+    created: "2023-03-10T23:52:52.814532982Z"
+    description: A Helm chart for deploying Jackett
+    digest: 51d50abd03b5991b3e2fc72b529f52f50480bf1bc4b02077850b1f0652becf2a
+    name: jackett
+    urls:
+    - https://github.com/bengtfredh/charts/releases/download/jackett-0.1.13/jackett-0.1.13.tgz
+    version: 0.1.13
   - apiVersion: v1
     appVersion: 0.20.2741
     created: "2023-01-30T20:47:46.47724129Z"
@@ -193,4 +201,4 @@ entries:
     urls:
     - https://github.com/bengtfredh/charts/releases/download/jackett-0.1.1/jackett-0.1.1.tgz
     version: 0.1.1
-generated: "2023-01-30T20:47:46.477561596Z"
+generated: "2023-03-10T23:52:52.814857483Z"
