@@ -4,7 +4,7 @@ environment: development
 
 
 autoscaling:
-  enabled: false
+  enabled: true
   replicas:
     min: 2
     max: 10
@@ -31,6 +31,14 @@ service:
   externalPort: 80
   # If your application is running on another port, change only the internal port.
   internalPort: 3000
+
+linkerd:
+    enabled: true
+
+monitoring:
+    enabled: false
+    path: "/metrics"
+    port: 3000
 
 startup:
   enabled: false

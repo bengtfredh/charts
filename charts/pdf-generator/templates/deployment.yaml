@@ -19,8 +19,19 @@ spec:
         app: {{ template "name" . }}
         release: {{ .Release.Name }}
       annotations:
+        {{- with .Values.podAnnotations }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+        {{- if .Values.monitoring.enabled }}
+        prometheus.io/scrape: true
+        prometheus.io/path: {{ .Values.monitoring.path }}
+        prometheus.io/port: {{ .Values.monitoring.port }}
+        {{- end }}
+        {{- if .Values.linkerd.enabled }}
         linkerd.io/inject: enabled
         cluster-autoscaler.kubernetes.io/safe-to-evict: "true"
+        config.linkerd.io/skip-outbound-ports: "443"
+        {{- end }}
     spec:
       serviceAccountName: {{ template "name" . }}
     {{- if .Values.image.pullSecrets }}
