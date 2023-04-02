@@ -39,8 +39,6 @@ linkerd:
 
 monitoring:
   enabled: false
-  path: "/metrics"
-  port: 3000
 
 startup:
   enabled: false
