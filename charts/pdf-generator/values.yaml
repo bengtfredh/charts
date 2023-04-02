@@ -4,7 +4,7 @@ environment: development
 
 
 autoscaling:
-  enabled: true
+  enabled: false
   replicas:
     min: 2
     max: 10
@@ -33,7 +33,7 @@ service:
   internalPort: 3000
 
 startup:
-  enabled: true
+  enabled: false
   path: "/metrics"
 
 liveness:
