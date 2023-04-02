@@ -33,12 +33,12 @@ service:
   internalPort: 3000
 
 linkerd:
-    enabled: true
+  enabled: true
 
 monitoring:
-    enabled: false
-    path: "/metrics"
-    port: 3000
+  enabled: false
+  path: "/metrics"
+  port: 3000
 
 startup:
   enabled: false
