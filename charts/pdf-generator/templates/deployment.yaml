@@ -89,14 +89,14 @@ spec:
           imagePullPolicy: Always
           env:
             - name: LISTEN_ADDR
-              value: 3001
+              value: ":3001"
             - name: TIMEOUT
-              value: 5
+              value: "5"
             - name: DEBUG
-              value: TRUE
+              value: "TRUE"
             - name: BROWSERLESS_ENDPOINT
-              value: http://localhost:3001/metrics/total
+              value: "http://localhost:3000/metrics/total"
             - name: METRICS_PATH
-              value: /metrics
+              value: "/metrics"
           ports:
             - containerPort: 3001
