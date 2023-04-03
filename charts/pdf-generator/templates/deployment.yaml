@@ -84,3 +84,19 @@ spec:
               path: {{ .Values.liveness.path }}
               port: {{ .Values.service.internalPort }}
           {{- end }}
+        - name: metrics-exporter
+          image: tehwey/prometheus-browserless-exporter:latest
+          imagePullPolicy: 
+          env:
+            - name: LISTEN_ADDR
+              value: 3001
+            - name: TIMEOUT
+              value: 5
+            - name: DEBUG
+              value: TRUE
+            - name: BROWSERLESS_ENDPOINT
+              value: http://localhost:3001/metrics/total
+            - name: METRICS_PATH
+              value: /metrics
+          ports:
+            - containerPort: 3001
