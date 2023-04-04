@@ -25,7 +25,7 @@ spec:
         {{- if .Values.monitoring.enabled }}
         prometheus.io/scrape: "true"
         prometheus.io/path: /metrics
-        prometheus.io/port: "{{ .Values.service.internalPort }},{{ .Values.monitor.internalPort }}"
+        prometheus.io/port: "{{ .Values.service.internalPort }},{{ .Values.monitoring.internalPort }}"
         {{- end }}
         {{- if .Values.linkerd.enabled }}
         linkerd.io/inject: enabled
@@ -90,7 +90,7 @@ spec:
           imagePullPolicy: {{ .Values.monitoring.pullPolicy }}
           env:
             - name: LISTEN_ADDR
-              value: ":{{ .Values.monitor.internalPort }}"
+              value: ":{{ .Values.monitoring.internalPort }}"
             - name: TIMEOUT
               value: "5"
             - name: DEBUG
@@ -100,5 +100,5 @@ spec:
             - name: METRICS_PATH
               value: "/metrics"
           ports:
-            - containerPort: {{ .Values.monitor.internalPort }}
+            - containerPort: {{ .Values.monitoring.internalPort }}
       {{- end }}
