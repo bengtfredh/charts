@@ -203,6 +203,14 @@ entries:
     version: 0.1.1
   pdf-generator:
   - apiVersion: v1
+    created: "2023-04-04T11:18:28.158228054Z"
+    description: A Helm chart for the pdf generator
+    digest: b301855ca17f0318c4fb9a8d43bbf6d2d70b5f94933deff869c2ad4da1169b80
+    name: pdf-generator
+    urls:
+    - https://github.com/bengtfredh/charts/releases/download/pdf-generator-1.6.2/pdf-generator-1.6.2.tgz
+    version: 1.6.2
+  - apiVersion: v1
     created: "2023-04-04T11:05:44.798572039Z"
     description: A Helm chart for the pdf generator
     digest: eec6208832a1402d76bf077447218d2426ae1826ef8d9e184b9f31659439c49b
@@ -314,4 +322,4 @@ entries:
     urls:
     - https://github.com/bengtfredh/charts/releases/download/pdf-generator-1.3.1/pdf-generator-1.3.1.tgz
     version: 1.3.1
-generated: "2023-04-04T11:05:44.798671238Z"
+generated: "2023-04-04T11:18:28.158545355Z"
