@@ -25,7 +25,7 @@ spec:
         {{- if .Values.monitoring.enabled }}
         prometheus.io/scrape: "true"
         prometheus.io/path: /metrics
-        prometheus.io/port: "3000"
+        prometheus.io/port: "{{ .Values.service.internalPort }},{{ .Values.monitor.internalPort }}"
         {{- end }}
         {{- if .Values.linkerd.enabled }}
         linkerd.io/inject: enabled
@@ -84,19 +84,21 @@ spec:
               path: {{ .Values.liveness.path }}
               port: {{ .Values.service.internalPort }}
           {{- end }}
+      {{- if .Values.monitoring.enabled }}
         - name: metrics-exporter
-          image: ghcr.io/bengtfredh/prometheus-browserless-exporter:5939a7b5a3fee94e556e369416e10cb0c41c9ad1
-          imagePullPolicy: Always
+          image: "{{ required "A valid image.repository value is required!" .Values.monitoring.image }}:{{ .Values.monitoring.tag }}"
+          imagePullPolicy: {{ .Values.monitoring.pullPolicy }}
           env:
             - name: LISTEN_ADDR
-              value: ":3001"
+              value: ":{{ .Values.monitor.internalPort }}"
             - name: TIMEOUT
               value: "5"
             - name: DEBUG
               value: "TRUE"
             - name: BROWSERLESS_ENDPOINT
-              value: "http://localhost:3000/metrics/total"
+              value: "http://localhost:{{ .Values.service.internalPort }}/metrics"
             - name: METRICS_PATH
               value: "/metrics"
           ports:
-            - containerPort: 3001
+            - containerPort: {{ .Values.monitor.internalPort }}
+      {{- end }}

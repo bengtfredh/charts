@@ -39,6 +39,10 @@ linkerd:
 
 monitoring:
   enabled: false
+  image: ghcr.io/bengtfredh/prometheus-browserless-exporter
+  tag: 5939a7b5a3fee94e556e369416e10cb0c41c9ad1
+  pullPolicy: IfNotPresent
+  internalPort: 3001
 
 startup:
   enabled: false
