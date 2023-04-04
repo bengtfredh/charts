@@ -85,7 +85,7 @@ spec:
               port: {{ .Values.service.internalPort }}
           {{- end }}
         - name: metrics-exporter
-          image: ghcr.io/bengtfredh/prometheus-browserless-exporter:6461f8be6c8090085ee0a5d8fe5a4647bf499804
+          image: ghcr.io/bengtfredh/prometheus-browserless-exporter:5939a7b5a3fee94e556e369416e10cb0c41c9ad1
           imagePullPolicy: Always
           env:
             - name: LISTEN_ADDR
