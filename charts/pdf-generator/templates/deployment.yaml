@@ -96,7 +96,7 @@ spec:
             - name: DEBUG
               value: "TRUE"
             - name: BROWSERLESS_ENDPOINT
-              value: "http://localhost:{{ .Values.service.internalPort }}/metrics"
+              value: "http://localhost:{{ .Values.service.internalPort }}/metrics/total"
             - name: METRICS_PATH
               value: "/metrics"
           ports:
