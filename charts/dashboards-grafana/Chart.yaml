@@ -1,0 +1,5 @@
+apiVersion: v2
+name: altinn-dashboards-grafana
+description: Add Altinn Grafana dashboards
+icon: https://raw.githubusercontent.com/grafana/grafana/master/public/img/logo_transparent_400x.png
+version: 1.0.1
